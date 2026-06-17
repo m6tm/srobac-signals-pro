@@ -1,0 +1,34 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout>
+  <div class="p-4 lg:p-6 space-y-6">
+    <div>
+      <h1 class="text-2xl font-bold">Historique des signaux</h1>
+      <p class="text-sm text-text-secondary mt-1">Tous les signaux SROBAC détectés</p>
+    </div>
+
+    <div class="card overflow-hidden">
+      <table class="w-full">
+        <thead>
+          <tr class="table-header">
+            <th class="text-left px-4 py-3">Date</th>
+            <th class="text-left px-4 py-3">Paire</th>
+            <th class="text-left px-4 py-3">Direction</th>
+            <th class="text-left px-4 py-3">Entry</th>
+            <th class="text-left px-4 py-3">SL</th>
+            <th class="text-left px-4 py-3">TP</th>
+            <th class="text-left px-4 py-3">Résultat</th>
+            <th class="text-left px-4 py-3">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-row">
+            <td class="px-4 py-3 text-text-secondary text-sm" colspan="8">Aucun signal dans l'historique</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</MainLayout>

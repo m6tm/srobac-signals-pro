@@ -1,0 +1,113 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model PairConfig {
+  symbol        String   @id
+  name          String
+  timeframe     String
+  tpRatio       Float
+  beRatio       Float
+  active        Boolean  @default(true)
+  isIndex       Boolean  @default(false)
+  lastPrice     Float?
+  lastUpdate    DateTime?
+  ema100        Float?
+  atr14         Float?
+  currentTrend  String?
+}
+
+model Signal {
+  id                    String   @id @default(uuid())
+  pair                  String
+  direction             String   @default("LONG")
+  status                String
+  entryPrice            Float
+  stopLoss              Float
+  takeProfit            Float
+  breakEvenPrice        Float
+  breakEvenRatio        Float
+  timeframe             String
+  ema100AtSignal        Float
+  atr14AtSignal         Float
+  resistanceHigh        Float
+  resistanceLow         Float
+  breakoutTimestamp     DateTime
+  throwbackTimestamp    DateTime
+  confirmationTimestamp DateTime
+  highestPrice          Float?
+  slMovedToBE           Boolean  @default(false)
+  createdAt             DateTime @default(now())
+  resolvedAt            DateTime?
+  result                String?
+  pnlR                  Float?
+  logs                  SignalLog[]
+
+  @@index([pair, status])
+  @@index([createdAt])
+}
+
+model SignalLog {
+  id        String   @id @default(uuid())
+  signalId  String
+  event     String
+  timestamp DateTime @default(now())
+  price     Float?
+  details   Json?
+  signal    Signal   @relation(fields: [signalId], references: [id])
+
+  @@index([signalId, timestamp])
+}
+
+model MarketData {
+  id        String   @id @default(uuid())
+  pair      String
+  timeframe String
+  timestamp DateTime
+  open      Float
+  high      Float
+  low       Float
+  close     Float
+  volume    Int
+  ema100    Float?
+  atr14     Float?
+  rsi14     Float?
+
+  @@unique([pair, timeframe, timestamp])
+  @@index([pair, timeframe, timestamp])
+}
+
+model Settings {
+  id                String   @id @default("default")
+  oandaApiKey       String?
+  oandaAccountId    String?
+  oandaEnvironment  String   @default("practice")
+  telegramBotToken  String?
+  telegramChatId    String?
+  riskPerTrade      Float    @default(1.0)
+  januaryPause      Boolean  @default(true)
+  activePairs       String[]
+  systemStatus      String   @default("RUNNING")
+  lastHeartbeat     DateTime?
+}
+
+model MonthlyStats {
+  id            String   @id @default(uuid())
+  year          Int
+  month         Int
+  pair          String
+  totalSignals  Int      @default(0)
+  wins          Int      @default(0)
+  losses        Int      @default(0)
+  beExits       Int      @default(0)
+  totalR        Float    @default(0)
+  avgRR         Float?
+  maxDrawdownR  Float?
+
+  @@unique([year, month, pair])
+}

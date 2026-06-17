@@ -1,43 +1,60 @@
-# Astro Starter Kit: Minimal
+# OANDA Signals Pro — SROBAC Strategy
 
-```sh
-pnpm create astro@latest -- --template minimal
+Système de signaux de trading automatisé basé sur la stratégie SROBAC (Support, Résistance, Order Block, And Confirmation) appliquée aux paires JPY.
+
+## Stack technique
+
+- **Framework** : Astro 6.4.7 + Svelte 5
+- **UI** : shadcn/ui + Tailwind CSS 4
+- **Charts** : TradingView Lightweight Charts 5.2.0
+- **Database** : Supabase (PostgreSQL) + Prisma 7.8.0
+- **API Broker** : OANDA v20 REST API
+- **Notifications** : Telegram Bot API
+- **Package Manager** : pnpm
+
+## Paires surveillées (8 actifs JPY)
+
+| Paire | Timeframe | TP (R:R) | BE (R) |
+|-------|-----------|----------|--------|
+| CAD/JPY | M45 | 3.0 | 2.0 |
+| AUD/JPY | M30 | 3.0 | 2.0 |
+| CHF/JPY | 1H | 3.5 | 2.0 |
+| NZD/JPY | M30 | 3.5 | 2.0 |
+| GBP/JPY | M30 | 3.5 | 2.0 |
+| USD/JPY | M30 | 3.5 | 2.0 |
+| EUR/JPY | M30 | 3.0 | 2.0 |
+| JP225 | M30 | 3.5 | 1.0 |
+
+## Stratégie SROBAC — 5 étapes
+
+1. **Filtre EMA 100** : Prix strictement au-dessus de l'EMA 100
+2. **Résistance** : Zone avec 2+ impacts espacés de 15+ bougies
+3. **Breakout** : Bougie verte clôturant au-dessus de la résistance
+4. **Throwback** : Bougie baissière revenant toucher la zone (devenue support)
+5. **Confirmation** : Bougie haussière clôturant au-dessus du high du throwback
+
+## Installation
+
+```bash
+pnpm install
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Configuration
 
-## 🚀 Project Structure
+Copier `.env.example` en `.env` et remplir les variables.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Développement
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+pnpm dev
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Build
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```bash
+pnpm build
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Auteur
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+M6TM Trading Systems

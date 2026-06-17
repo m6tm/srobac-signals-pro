@@ -1,0 +1,113 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout>
+  <div class="p-4 lg:p-6 space-y-6 max-w-3xl">
+    <div>
+      <h1 class="text-2xl font-bold">Paramètres</h1>
+      <p class="text-sm text-text-secondary mt-1">Configuration du système SROBAC</p>
+    </div>
+
+    <!-- OANDA -->
+    <div class="card space-y-4">
+      <h2 class="text-lg font-semibold">API OANDA</h2>
+      
+      <div class="space-y-3">
+        <div>
+          <label class="block text-sm text-text-secondary mb-1">Clé API</label>
+          <input type="password" class="input w-full" placeholder="votre-clé-api-oanda" />
+        </div>
+        <div>
+          <label class="block text-sm text-text-secondary mb-1">Account ID</label>
+          <input type="text" class="input w-full" placeholder="001-011-0000000-000" />
+        </div>
+        <div>
+          <label class="block text-sm text-text-secondary mb-1">Environnement</label>
+          <select class="input w-full">
+            <option value="practice">Practice (Démo)</option>
+            <option value="live">Live (Réel)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Telegram -->
+    <div class="card space-y-4">
+      <h2 class="text-lg font-semibold">Telegram</h2>
+      
+      <div class="space-y-3">
+        <div>
+          <label class="block text-sm text-text-secondary mb-1">Bot Token</label>
+          <input type="password" class="input w-full" placeholder="123456789:ABC..." />
+        </div>
+        <div>
+          <label class="block text-sm text-text-secondary mb-1">Chat ID</label>
+          <input type="text" class="input w-full" placeholder="-1001234567890" />
+        </div>
+        <button class="btn btn-secondary text-sm">Tester la notification</button>
+      </div>
+    </div>
+
+    <!-- Stratégie -->
+    <div class="card space-y-4">
+      <h2 class="text-lg font-semibold">Stratégie SROBAC</h2>
+      
+      <div class="space-y-3">
+        <div>
+          <label class="block text-sm text-text-secondary mb-1">Risque par trade (%)</label>
+          <input type="number" class="input w-full" value="1.0" step="0.1" min="0.1" max="5" />
+        </div>
+        <div class="flex items-center gap-3">
+          <input type="checkbox" id="january-pause" checked class="w-4 h-4 accent-accent-long" />
+          <label for="january-pause" class="text-sm">Pause automatique en janvier</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paires actives -->
+    <div class="card space-y-4">
+      <h2 class="text-lg font-semibold">Paires actives</h2>
+      
+      <div class="grid grid-cols-2 gap-3">
+        <label class="flex items-center gap-2 p-3 rounded-md bg-bg-tertiary cursor-pointer">
+          <input type="checkbox" checked class="w-4 h-4 accent-accent-long" />
+          <span class="text-sm font-medium">CAD/JPY</span>
+        </label>
+        <label class="flex items-center gap-2 p-3 rounded-md bg-bg-tertiary cursor-pointer">
+          <input type="checkbox" checked class="w-4 h-4 accent-accent-long" />
+          <span class="text-sm font-medium">AUD/JPY</span>
+        </label>
+        <label class="flex items-center gap-2 p-3 rounded-md bg-bg-tertiary cursor-pointer">
+          <input type="checkbox" checked class="w-4 h-4 accent-accent-long" />
+          <span class="text-sm font-medium">CHF/JPY</span>
+        </label>
+        <label class="flex items-center gap-2 p-3 rounded-md bg-bg-tertiary cursor-pointer">
+          <input type="checkbox" checked class="w-4 h-4 accent-accent-long" />
+          <span class="text-sm font-medium">NZD/JPY</span>
+        </label>
+        <label class="flex items-center gap-2 p-3 rounded-md bg-bg-tertiary cursor-pointer">
+          <input type="checkbox" checked class="w-4 h-4 accent-accent-long" />
+          <span class="text-sm font-medium">GBP/JPY</span>
+        </label>
+        <label class="flex items-center gap-2 p-3 rounded-md bg-bg-tertiary cursor-pointer">
+          <input type="checkbox" checked class="w-4 h-4 accent-accent-long" />
+          <span class="text-sm font-medium">USD/JPY</span>
+        </label>
+        <label class="flex items-center gap-2 p-3 rounded-md bg-bg-tertiary cursor-pointer">
+          <input type="checkbox" checked class="w-4 h-4 accent-accent-long" />
+          <span class="text-sm font-medium">EUR/JPY</span>
+        </label>
+        <label class="flex items-center gap-2 p-3 rounded-md bg-bg-tertiary cursor-pointer">
+          <input type="checkbox" checked class="w-4 h-4 accent-accent-long" />
+          <span class="text-sm font-medium">JP225</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="flex gap-3">
+      <button class="btn btn-primary flex-1">Sauvegarder</button>
+      <button class="btn btn-secondary">Annuler</button>
+    </div>
+  </div>
+</MainLayout>

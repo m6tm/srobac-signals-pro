@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+@theme {
+  /* Backgrounds */
+  --color-bg-primary: #0A0A0F;
+  --color-bg-secondary: #12121A;
+  --color-bg-tertiary: #1A1A24;
+  --color-bg-elevated: #22222E;
+
+  /* Borders */
+  --color-border: #2A2A3A;
+  --color-border-strong: #3A3A4A;
+
+  /* Text */
+  --color-text-primary: #F0F0F5;
+  --color-text-secondary: #8A8A9A;
+  --color-text-muted: #5A5A6A;
+
+  /* Accents */
+  --color-accent-long: #00C853;
+  --color-accent-short: #FF5252;
+  --color-accent-warning: #FFB300;
+  --color-accent-info: #448AFF;
+  --color-accent-neutral: #78909C;
+  --color-accent-resistance: #FF6D00;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    min-height: 100vh;
+  }
+
+  * {
+    border-color: var(--color-border);
+  }
+}
+
+@layer components {
+  .card {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 16px;
+  }
+
+  .card-hover:hover {
+    border-color: var(--color-border-strong);
+    transition: border-color 0.2s ease;
+  }
+
+  .btn {
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.15s ease, transform 0.1s ease;
+  }
+
+  .btn:hover {
+    opacity: 0.9;
+  }
+
+  .btn:active {
+    transform: scale(0.98);
+  }
+
+  .btn-primary {
+    background-color: var(--color-accent-long);
+    color: #000;
+  }
+
+  .btn-secondary {
+    background-color: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+  }
+
+  .btn-ghost {
+    background-color: transparent;
+    color: var(--color-text-secondary);
+  }
+
+  .btn-danger {
+    background-color: var(--color-accent-short);
+    color: #fff;
+  }
+
+  .input {
+    background-color: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 10px 12px;
+    color: var(--color-text-primary);
+  }
+
+  .input:focus {
+    outline: none;
+    border-color: var(--color-accent-info);
+    box-shadow: 0 0 0 2px rgba(68, 138, 255, 0.2);
+  }
+
+  .input::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .table-header {
+    background-color: var(--color-bg-tertiary);
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .table-row {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .table-row:hover {
+    background-color: var(--color-bg-tertiary);
+  }
+
+  .price-up {
+    color: var(--color-accent-long);
+  }
+
+  .price-down {
+    color: var(--color-accent-short);
+  }
+
+  .badge-long {
+    background-color: rgba(0, 200, 83, 0.15);
+    color: var(--color-accent-long);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .badge-short {
+    background-color: rgba(255, 82, 82, 0.15);
+    color: var(--color-accent-short);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .badge-warning {
+    background-color: rgba(255, 179, 0, 0.15);
+    color: var(--color-accent-warning);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .badge-neutral {
+    background-color: rgba(120, 144, 156, 0.15);
+    color: var(--color-accent-neutral);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+}
+
+@layer utilities {
+  .font-mono-price {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}

@@ -1,17 +1,57 @@
 ---
-
+import MainLayout from '../layouts/MainLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout>
+  <div class="p-4 lg:p-6 space-y-6">
+    <!-- Header -->
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-bold">Dashboard SROBAC</h1>
+        <p class="text-sm text-text-secondary mt-1">Surveillance des 8 paires JPY en temps réel</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2 px-3 py-2 rounded-md bg-bg-secondary border border-border">
+          <div class="w-2 h-2 rounded-full bg-accent-long animate-pulse"></div>
+          <span class="text-sm font-medium">Système actif</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats cards -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="card card-hover">
+        <p class="text-xs text-text-secondary uppercase tracking-wider">Signaux ce mois</p>
+        <p class="text-2xl font-bold font-mono-price mt-2">0</p>
+      </div>
+      <div class="card card-hover">
+        <p class="text-xs text-text-secondary uppercase tracking-wider">Win Rate</p>
+        <p class="text-2xl font-bold font-mono-price mt-2 text-accent-long">--%</p>
+      </div>
+      <div class="card card-hover">
+        <p class="text-xs text-text-secondary uppercase tracking-wider">Profit Factor</p>
+        <p class="text-2xl font-bold font-mono-price mt-2 text-accent-info">--</p>
+      </div>
+      <div class="card card-hover">
+        <p class="text-xs text-text-secondary uppercase tracking-wider">Drawdown Max</p>
+        <p class="text-2xl font-bold font-mono-price mt-2 text-accent-short">--%</p>
+      </div>
+    </div>
+
+    <!-- Pairs grid -->
+    <div>
+      <h2 class="text-lg font-semibold mb-4">Paires surveillées</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4" id="pairs-grid">
+        <!-- Pairs will be loaded by Svelte component -->
+      </div>
+    </div>
+
+    <!-- Active signals -->
+    <div>
+      <h2 class="text-lg font-semibold mb-4">Signaux actifs</h2>
+      <div class="card">
+        <p class="text-text-muted text-sm">Aucun signal actif pour le moment. Le système surveille les 8 paires en permanence.</p>
+      </div>
+    </div>
+  </div>
+</MainLayout>

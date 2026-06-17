@@ -1,17 +1,32 @@
 {
   "name": "srobac-signals-pro",
   "type": "module",
-  "version": "0.0.1",
-  "engines": {
-    "node": ">=22.12.0"
-  },
+  "version": "0.1.0",
   "scripts": {
     "dev": "astro dev",
+    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:studio": "prisma studio",
+    "db:seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
-    "astro": "^6.4.7"
+    "@astrojs/svelte": "^8.1.2",
+    "astro": "^6.4.7",
+    "lightweight-charts": "^5.2.0",
+    "svelte": "^5.56.3",
+    "@supabase/supabase-js": "^2.108.2",
+    "zod": "^3.25.0",
+    "dotenv": "^16.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^4.3.1",
+    "typescript": "^5.8.0"
   }
 }

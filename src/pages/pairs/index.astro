@@ -1,0 +1,102 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout>
+  <div class="p-4 lg:p-6 space-y-6">
+    <div>
+      <h1 class="text-2xl font-bold">Paires JPY</h1>
+      <p class="text-sm text-text-secondary mt-1">Configuration et surveillance des 8 actifs</p>
+    </div>
+
+    <div class="card overflow-hidden">
+      <table class="w-full">
+        <thead>
+          <tr class="table-header">
+            <th class="text-left px-4 py-3">Paire</th>
+            <th class="text-left px-4 py-3">Timeframe</th>
+            <th class="text-left px-4 py-3">TP (R:R)</th>
+            <th class="text-left px-4 py-3">BE (R)</th>
+            <th class="text-left px-4 py-3">Prix actuel</th>
+            <th class="text-left px-4 py-3">Trend</th>
+            <th class="text-left px-4 py-3">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-row">
+            <td class="px-4 py-3 font-medium">CAD/JPY</td>
+            <td class="px-4 py-3 text-text-secondary">M45</td>
+            <td class="px-4 py-3 font-mono-price text-accent-long">3.0</td>
+            <td class="px-4 py-3 font-mono-price">2.0</td>
+            <td class="px-4 py-3 font-mono-price">--</td>
+            <td class="px-4 py-3"><span class="badge-neutral">--</span></td>
+            <td class="px-4 py-3"><span class="badge-long">Actif</span></td>
+          </tr>
+          <tr class="table-row">
+            <td class="px-4 py-3 font-medium">AUD/JPY</td>
+            <td class="px-4 py-3 text-text-secondary">M30</td>
+            <td class="px-4 py-3 font-mono-price text-accent-long">3.0</td>
+            <td class="px-4 py-3 font-mono-price">2.0</td>
+            <td class="px-4 py-3 font-mono-price">--</td>
+            <td class="px-4 py-3"><span class="badge-neutral">--</span></td>
+            <td class="px-4 py-3"><span class="badge-long">Actif</span></td>
+          </tr>
+          <tr class="table-row">
+            <td class="px-4 py-3 font-medium">CHF/JPY</td>
+            <td class="px-4 py-3 text-text-secondary">1H</td>
+            <td class="px-4 py-3 font-mono-price text-accent-long">3.5</td>
+            <td class="px-4 py-3 font-mono-price">2.0</td>
+            <td class="px-4 py-3 font-mono-price">--</td>
+            <td class="px-4 py-3"><span class="badge-neutral">--</span></td>
+            <td class="px-4 py-3"><span class="badge-long">Actif</span></td>
+          </tr>
+          <tr class="table-row">
+            <td class="px-4 py-3 font-medium">NZD/JPY</td>
+            <td class="px-4 py-3 text-text-secondary">M30</td>
+            <td class="px-4 py-3 font-mono-price text-accent-long">3.5</td>
+            <td class="px-4 py-3 font-mono-price">2.0</td>
+            <td class="px-4 py-3 font-mono-price">--</td>
+            <td class="px-4 py-3"><span class="badge-neutral">--</span></td>
+            <td class="px-4 py-3"><span class="badge-long">Actif</span></td>
+          </tr>
+          <tr class="table-row">
+            <td class="px-4 py-3 font-medium">GBP/JPY</td>
+            <td class="px-4 py-3 text-text-secondary">M30</td>
+            <td class="px-4 py-3 font-mono-price text-accent-long">3.5</td>
+            <td class="px-4 py-3 font-mono-price">2.0</td>
+            <td class="px-4 py-3 font-mono-price">--</td>
+            <td class="px-4 py-3"><span class="badge-neutral">--</span></td>
+            <td class="px-4 py-3"><span class="badge-long">Actif</span></td>
+          </tr>
+          <tr class="table-row">
+            <td class="px-4 py-3 font-medium">USD/JPY</td>
+            <td class="px-4 py-3 text-text-secondary">M30</td>
+            <td class="px-4 py-3 font-mono-price text-accent-long">3.5</td>
+            <td class="px-4 py-3 font-mono-price">2.0</td>
+            <td class="px-4 py-3 font-mono-price">--</td>
+            <td class="px-4 py-3"><span class="badge-neutral">--</span></td>
+            <td class="px-4 py-3"><span class="badge-long">Actif</span></td>
+          </tr>
+          <tr class="table-row">
+            <td class="px-4 py-3 font-medium">EUR/JPY</td>
+            <td class="px-4 py-3 text-text-secondary">M30</td>
+            <td class="px-4 py-3 font-mono-price text-accent-long">3.0</td>
+            <td class="px-4 py-3 font-mono-price">2.0</td>
+            <td class="px-4 py-3 font-mono-price">--</td>
+            <td class="px-4 py-3"><span class="badge-neutral">--</span></td>
+            <td class="px-4 py-3"><span class="badge-long">Actif</span></td>
+          </tr>
+          <tr class="table-row">
+            <td class="px-4 py-3 font-medium">JP225</td>
+            <td class="px-4 py-3 text-text-secondary">M30</td>
+            <td class="px-4 py-3 font-mono-price text-accent-long">3.5</td>
+            <td class="px-4 py-3 font-mono-price">1.0</td>
+            <td class="px-4 py-3 font-mono-price">--</td>
+            <td class="px-4 py-3"><span class="badge-neutral">--</span></td>
+            <td class="px-4 py-3"><span class="badge-long">Actif</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</MainLayout>
